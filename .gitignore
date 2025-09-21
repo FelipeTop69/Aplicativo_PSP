@@ -1,0 +1,59 @@
+# macOS
+.DS_Store
+
+# VSCode
+.vscode/
+
+# Rider / IntelliJ
+.idea/
+
+# Node (si usas frontend dentro del mismo repo)
+**/node_modules/
+
+# Dotnet
+**/bin/
+**/obj/
+**/out/
+
+# Publicaciones y paquetes
+**/publish/
+**/artifacts/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
+
+# Configs de depuración locales
+launchSettings.json
+
+# Archivos de dependencia de NuGet
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Carpeta de paquetes descargados
+**/packages/
+!**/packages/build/
+
+# Archivos temporales de test
+TestResult*/
+*.trx
+*.coverage
+*.coveragexml
+
+# Cache de VS
+.vs/
+.vscode/
+*.swp
+*.tmp
+*.dbmdl
+
+# Otros comunes
+_ReSharper*/
+*.resharper
+*.DotSettings.user
