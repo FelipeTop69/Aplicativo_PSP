@@ -1,6 +1,2 @@
 ﻿namespace Colegio.Application;
-
-public class AssemblyRef
-{
-
-}
+public static class AssemblyRef { }
