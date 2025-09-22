@@ -1,0 +1,22 @@
+using Colegio.Infrastructure.Extensions;
+using FluentValidation;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+// Application & Validators
+builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddValidatorsFromAssembly(typeof(Colegio.Application.AssemblyRef).Assembly);
+
+// Infra (DbContext, repos, UoW)
+builder.Services.AddInfrastructure(builder.Configuration);
+
+var app = builder.Build();
+if (app.Environment.IsDevelopment()) { app.UseSwagger(); app.UseSwaggerUI(); }
+
+app.UseHttpsRedirection();
+app.MapControllers();
+app.Run();
