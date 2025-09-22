@@ -4,6 +4,7 @@ using Colegio.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Colegio.Infrastructure.Migrations
 {
     [DbContext(typeof(ColegioDbContext))]
-    partial class ColegioDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250922063704_V2_Academica")]
+    partial class V2_Academica
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,50 +50,6 @@ namespace Colegio.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("AssessmentTypes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Parcial",
-                            SubjectOfferingId = 1,
-                            Weight = (byte)40
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Taller",
-                            SubjectOfferingId = 1,
-                            Weight = (byte)30
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Examen",
-                            SubjectOfferingId = 1,
-                            Weight = (byte)30
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Parcial",
-                            SubjectOfferingId = 2,
-                            Weight = (byte)40
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "Taller",
-                            SubjectOfferingId = 2,
-                            Weight = (byte)30
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "Examen",
-                            SubjectOfferingId = 2,
-                            Weight = (byte)30
-                        });
                 });
 
             modelBuilder.Entity("Colegio.Domain.Entities.Enrollment", b =>
@@ -121,48 +80,6 @@ namespace Colegio.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("Enrollments");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            EnrolledAt = new DateTime(2025, 2, 1, 14, 0, 0, 0, DateTimeKind.Utc),
-                            FinalAverage = 4.00m,
-                            StudentId = 1,
-                            SubjectOfferingId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            EnrolledAt = new DateTime(2025, 2, 1, 14, 0, 0, 0, DateTimeKind.Utc),
-                            FinalAverage = 3.50m,
-                            StudentId = 2,
-                            SubjectOfferingId = 1
-                        },
-                        new
-                        {
-                            Id = 3,
-                            EnrolledAt = new DateTime(2025, 2, 1, 14, 0, 0, 0, DateTimeKind.Utc),
-                            FinalAverage = 4.44m,
-                            StudentId = 3,
-                            SubjectOfferingId = 1
-                        },
-                        new
-                        {
-                            Id = 4,
-                            EnrolledAt = new DateTime(2025, 2, 1, 14, 0, 0, 0, DateTimeKind.Utc),
-                            FinalAverage = 4.18m,
-                            StudentId = 1,
-                            SubjectOfferingId = 2
-                        },
-                        new
-                        {
-                            Id = 5,
-                            EnrolledAt = new DateTime(2025, 2, 1, 14, 0, 0, 0, DateTimeKind.Utc),
-                            FinalAverage = 3.39m,
-                            StudentId = 2,
-                            SubjectOfferingId = 2
-                        });
                 });
 
             modelBuilder.Entity("Colegio.Domain.Entities.Grade", b =>
@@ -194,128 +111,6 @@ namespace Colegio.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("Grades");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AssessmentTypeId = 1,
-                            EnrollmentId = 1,
-                            GradedAt = new DateTime(2025, 4, 15, 15, 30, 0, 0, DateTimeKind.Utc),
-                            Score = 4.00m
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AssessmentTypeId = 2,
-                            EnrollmentId = 1,
-                            GradedAt = new DateTime(2025, 4, 15, 15, 30, 0, 0, DateTimeKind.Utc),
-                            Score = 4.20m
-                        },
-                        new
-                        {
-                            Id = 3,
-                            AssessmentTypeId = 3,
-                            EnrollmentId = 1,
-                            GradedAt = new DateTime(2025, 4, 15, 15, 30, 0, 0, DateTimeKind.Utc),
-                            Score = 3.80m
-                        },
-                        new
-                        {
-                            Id = 4,
-                            AssessmentTypeId = 1,
-                            EnrollmentId = 2,
-                            GradedAt = new DateTime(2025, 4, 15, 15, 30, 0, 0, DateTimeKind.Utc),
-                            Score = 3.50m
-                        },
-                        new
-                        {
-                            Id = 5,
-                            AssessmentTypeId = 2,
-                            EnrollmentId = 2,
-                            GradedAt = new DateTime(2025, 4, 15, 15, 30, 0, 0, DateTimeKind.Utc),
-                            Score = 4.00m
-                        },
-                        new
-                        {
-                            Id = 6,
-                            AssessmentTypeId = 3,
-                            EnrollmentId = 2,
-                            GradedAt = new DateTime(2025, 4, 15, 15, 30, 0, 0, DateTimeKind.Utc),
-                            Score = 3.00m
-                        },
-                        new
-                        {
-                            Id = 7,
-                            AssessmentTypeId = 1,
-                            EnrollmentId = 3,
-                            GradedAt = new DateTime(2025, 4, 15, 15, 30, 0, 0, DateTimeKind.Utc),
-                            Score = 4.50m
-                        },
-                        new
-                        {
-                            Id = 8,
-                            AssessmentTypeId = 2,
-                            EnrollmentId = 3,
-                            GradedAt = new DateTime(2025, 4, 15, 15, 30, 0, 0, DateTimeKind.Utc),
-                            Score = 4.80m
-                        },
-                        new
-                        {
-                            Id = 9,
-                            AssessmentTypeId = 3,
-                            EnrollmentId = 3,
-                            GradedAt = new DateTime(2025, 4, 15, 15, 30, 0, 0, DateTimeKind.Utc),
-                            Score = 4.00m
-                        },
-                        new
-                        {
-                            Id = 10,
-                            AssessmentTypeId = 4,
-                            EnrollmentId = 4,
-                            GradedAt = new DateTime(2025, 4, 15, 15, 30, 0, 0, DateTimeKind.Utc),
-                            Score = 4.30m
-                        },
-                        new
-                        {
-                            Id = 11,
-                            AssessmentTypeId = 5,
-                            EnrollmentId = 4,
-                            GradedAt = new DateTime(2025, 4, 15, 15, 30, 0, 0, DateTimeKind.Utc),
-                            Score = 4.00m
-                        },
-                        new
-                        {
-                            Id = 12,
-                            AssessmentTypeId = 6,
-                            EnrollmentId = 4,
-                            GradedAt = new DateTime(2025, 4, 15, 15, 30, 0, 0, DateTimeKind.Utc),
-                            Score = 4.20m
-                        },
-                        new
-                        {
-                            Id = 13,
-                            AssessmentTypeId = 4,
-                            EnrollmentId = 5,
-                            GradedAt = new DateTime(2025, 4, 15, 15, 30, 0, 0, DateTimeKind.Utc),
-                            Score = 3.00m
-                        },
-                        new
-                        {
-                            Id = 14,
-                            AssessmentTypeId = 5,
-                            EnrollmentId = 5,
-                            GradedAt = new DateTime(2025, 4, 15, 15, 30, 0, 0, DateTimeKind.Utc),
-                            Score = 3.50m
-                        },
-                        new
-                        {
-                            Id = 15,
-                            AssessmentTypeId = 6,
-                            EnrollmentId = 5,
-                            GradedAt = new DateTime(2025, 4, 15, 15, 30, 0, 0, DateTimeKind.Utc),
-                            Score = 3.80m
-                        });
                 });
 
             modelBuilder.Entity("Colegio.Domain.Entities.Period", b =>
@@ -350,16 +145,6 @@ namespace Colegio.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("Periods");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            EndDate = new DateTime(2025, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "2025-P1",
-                            StartDate = new DateTime(2025, 1, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Status = "Open"
-                        });
                 });
 
             modelBuilder.Entity("Colegio.Domain.Entities.Student", b =>
@@ -411,58 +196,6 @@ namespace Colegio.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("Students");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedAt = new DateTime(2025, 1, 12, 12, 0, 0, 0, DateTimeKind.Utc),
-                            DocumentNumber = "S-2001",
-                            Email = "esteban.palomar@colegio.test",
-                            FirstName = "Esteban",
-                            LastName = "Palomar",
-                            Status = "Active"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedAt = new DateTime(2025, 1, 12, 12, 0, 0, 0, DateTimeKind.Utc),
-                            DocumentNumber = "S-2002",
-                            Email = "maria.gomez@colegio.test",
-                            FirstName = "María",
-                            LastName = "Gómez",
-                            Status = "Active"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreatedAt = new DateTime(2025, 1, 12, 12, 0, 0, 0, DateTimeKind.Utc),
-                            DocumentNumber = "S-2003",
-                            Email = "luis.ortega@colegio.test",
-                            FirstName = "Luis",
-                            LastName = "Ortega",
-                            Status = "Active"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CreatedAt = new DateTime(2025, 1, 12, 12, 0, 0, 0, DateTimeKind.Utc),
-                            DocumentNumber = "S-2004",
-                            Email = "sara.bermudez@colegio.test",
-                            FirstName = "Sara",
-                            LastName = "Bermúdez",
-                            Status = "Active"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CreatedAt = new DateTime(2025, 1, 12, 12, 0, 0, 0, DateTimeKind.Utc),
-                            DocumentNumber = "S-2005",
-                            Email = "ivan.rojas@colegio.test",
-                            FirstName = "Iván",
-                            LastName = "Rojas",
-                            Status = "Active"
-                        });
                 });
 
             modelBuilder.Entity("Colegio.Domain.Entities.Subject", b =>
@@ -492,29 +225,6 @@ namespace Colegio.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("Subjects");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Code = "MAT101",
-                            Name = "Matemáticas",
-                            WeeklyHours = (byte)4
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Code = "LEN201",
-                            Name = "Lengua",
-                            WeeklyHours = (byte)3
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Code = "CIE301",
-                            Name = "Ciencias",
-                            WeeklyHours = (byte)3
-                        });
                 });
 
             modelBuilder.Entity("Colegio.Domain.Entities.SubjectOffering", b =>
@@ -547,24 +257,6 @@ namespace Colegio.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("SubjectOfferings");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            IsClosed = false,
-                            PeriodId = 1,
-                            SubjectId = 1,
-                            TeacherId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            IsClosed = false,
-                            PeriodId = 1,
-                            SubjectId = 2,
-                            TeacherId = 2
-                        });
                 });
 
             modelBuilder.Entity("Colegio.Domain.Entities.Teacher", b =>
@@ -620,30 +312,6 @@ namespace Colegio.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("Teachers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedAt = new DateTime(2025, 1, 10, 12, 0, 0, 0, DateTimeKind.Utc),
-                            DocumentNumber = "T-1001",
-                            Email = "ana.ruiz@colegio.test",
-                            FirstName = "Ana",
-                            LastName = "Ruiz",
-                            Specialty = "Matemáticas",
-                            Status = "Active"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedAt = new DateTime(2025, 1, 10, 12, 0, 0, 0, DateTimeKind.Utc),
-                            DocumentNumber = "T-1002",
-                            Email = "carlos.mejia@colegio.test",
-                            FirstName = "Carlos",
-                            LastName = "Mejía",
-                            Specialty = "Lengua",
-                            Status = "Active"
-                        });
                 });
 
             modelBuilder.Entity("Colegio.Domain.Entities.AssessmentType", b =>

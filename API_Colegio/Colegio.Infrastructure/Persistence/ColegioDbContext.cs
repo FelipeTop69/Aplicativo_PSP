@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Colegio.Domain.Entities;
+using Colegio.Infrastructure.Persistence.Seed;
 
 namespace Colegio.Infrastructure.Persistence;
 public class ColegioDbContext : DbContext
@@ -18,6 +19,7 @@ public class ColegioDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ColegioDbContext).Assembly);
+        modelBuilder.SeedInitialData();
         base.OnModelCreating(modelBuilder);
     }
 }

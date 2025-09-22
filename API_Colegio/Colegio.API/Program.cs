@@ -22,9 +22,20 @@ builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
 builder.Services.AddScoped<IAssessmentService, AssessmentService>();
 builder.Services.AddScoped<IGradeService, GradeService>();
 
+//Cors
+const string FrontCors = "FrontCors";
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy(FrontCors, p => p
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+        .WithOrigins("http://127.0.0.1:5500")); 
+});
+
 var app = builder.Build();
 if (app.Environment.IsDevelopment()) { app.UseSwagger(); app.UseSwaggerUI(); }
 
 app.UseHttpsRedirection();
 app.MapControllers();
+app.UseCors(FrontCors);
 app.Run();
