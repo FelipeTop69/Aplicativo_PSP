@@ -1,3 +1,5 @@
+using Colegio.Application.Services.Implementations;
+using Colegio.Application.Services.Interfaces;
 using Colegio.Infrastructure.Extensions;
 using FluentValidation;
 
@@ -13,6 +15,12 @@ builder.Services.AddValidatorsFromAssembly(typeof(Colegio.Application.AssemblyRe
 
 // Infra (DbContext, repos, UoW)
 builder.Services.AddInfrastructure(builder.Configuration);
+
+//Services
+builder.Services.AddScoped<ISubjectOfferingService, SubjectOfferingService>();
+builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
+builder.Services.AddScoped<IAssessmentService, AssessmentService>();
+builder.Services.AddScoped<IGradeService, GradeService>();
 
 var app = builder.Build();
 if (app.Environment.IsDevelopment()) { app.UseSwagger(); app.UseSwaggerUI(); }
